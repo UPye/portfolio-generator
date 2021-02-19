@@ -1,8 +1,8 @@
+// Execute generatePage function from page-template.js
+const generatePage = require('./src/page-template.js')
+;
 // Activates the File System through Node.js Module
 const fs = require('fs');
-
-// Execute generatePage function from page-template.js
-const generatePage = require('./src/page-template.js');
 
 // Returns captured data as a string
 const profileDataArgs = process.argv.slice(2, process.argv.length);

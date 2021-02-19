@@ -1,27 +1,24 @@
-// Activates the File System through Node.js Module
-const fs = require('fs');
-
-// Execute generatePage function from page-template.js
-const generatePage = require('./src/page-template.js');
-
 // Returns captured data as a string
 const profileDataArgs = process.argv.slice(2, process.argv.length);
 
-const [userName, github] = profileDataArgs;
+const [userame, github] = profileDataArgs;
 
-
+console.log(name, github)
+console.log(generatePage(name, github));
 
 
 /* // Single-line way
 const generatePage = (userName, githubName) => `Name: ${userName}, Github: ${githubName}`;
 */
 
+// Multi-line way
+const generatePage = (userName, githubName) => {
+    return `
+    Name: ${userName}
+    Github: ${githubName}
+    `;
 
-
-fs.writeFile('./index.html', generatePage(userName, github), err => {
-    if (err) throw new Error (err);
-    console.log('Portfolio complete! Check out index.html to see the output!')
-});
+};
 
 
 /*

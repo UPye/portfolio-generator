@@ -1,9 +1,6 @@
 // Activates the File System through Node.js Module
 const fs = require('fs');
 
-// Execute generatePage function from page-template.js
-const generatePage = require('./src/page-template.js');
-
 // Returns captured data as a string
 const profileDataArgs = process.argv.slice(2, process.argv.length);
 
@@ -16,7 +13,8 @@ const [userName, github] = profileDataArgs;
 const generatePage = (userName, githubName) => `Name: ${userName}, Github: ${githubName}`;
 */
 
-
+/* Removed to replace with Node.js modular system that does the same thing a
+ */
 
 fs.writeFile('./index.html', generatePage(userName, github), err => {
     if (err) throw new Error (err);
