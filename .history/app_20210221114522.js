@@ -43,8 +43,8 @@ const promptUser = () => {
                 type: 'input',
                 name: 'github',
                 message: 'Enter you Github Username. (Required)',
-                validate: githubInput => {
-                    if (githubInput) {
+                validate: userNameInput => {
+                    if (userNameInput) {
                         return true;
                     }
                     else {
@@ -77,8 +77,8 @@ const promptProject = portfolioData => {
             type: 'input',
             name: 'name',
             message: 'What is the name of your project? (Required)',
-            validate: nameInput => {
-                if (nameInput) {
+            validate: projectNameInput => {
+                if (projectNameInput) {
                     return true;
                 }
                 else {
@@ -91,13 +91,9 @@ const promptProject = portfolioData => {
             type: 'input',
             name: 'description',
             message: 'Provide a description of the project (Required)',
-            validate: descriptionInput => {
-                if (descriptionInput) {
-                    return true;
-                }
-                else {
-                    console.log('Please enter a description for your project!');
-                    return false;
+            validate: projectDescription => {
+                if (projectDescription) {
+                    return t
                 }
             }
         },
@@ -110,16 +106,7 @@ const promptProject = portfolioData => {
         {
             type: 'input',
             name: 'link',
-            message: 'Enter the GitHub link to your project. (Required)',
-            validate: githubLink => {
-                if (githubLink) {
-                    return true;
-                }
-                else {
-                    console.log('Please enter you GitHub link!');
-                    return false;
-                }
-            }
+            message: 'Enter the GitHub link to your project. (Required)'
         },
         {
             type: 'confirm',
