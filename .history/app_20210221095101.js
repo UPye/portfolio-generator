@@ -1,7 +1,3 @@
-const inquirer = require('inquirer');
-
-console.log(inquirer);
-/*
 // Activates the File System through Node.js Module
 const fs = require('fs');
 
@@ -10,28 +6,21 @@ const generatePage = require('./src/page-template.js');
 
 const pageHTML = generatePage(userName, github);
 
+
+
+
 /* // Single-line way
 const generatePage = (userName, githubName) => `Name: ${userName}, Github: ${githubName}`;
 */
 
-/*
 
-fs.writeFile('./index.html', pageHTML, err => {
-    if (err) throw err;
+
+fs.writeFile('./index.html', generatePage(userName, github), err => {
+    if (err) throw new Error (err);
     console.log('Portfolio complete! Check out index.html to see the output!')
 });
 
-*/
 
-inquirer
-    .prompt([
-        {
-            type: 'input',
-            name: 'name',
-            message: 'What is your name?'
-        }
-    ])
-    .then(answers => console.log(answers));
 /*
 
 

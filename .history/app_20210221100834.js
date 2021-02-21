@@ -31,7 +31,7 @@ inquirer
             message: 'What is your name?'
         }
     ])
-    .then(answers => console.log(answers));
+    .then
 /*
 
 

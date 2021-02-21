@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 
-console.log(inquirer);
+console.log(inquirer)
 /*
 // Activates the File System through Node.js Module
 const fs = require('fs');
@@ -22,16 +22,6 @@ fs.writeFile('./index.html', pageHTML, err => {
 });
 
 */
-
-inquirer
-    .prompt([
-        {
-            type: 'input',
-            name: 'name',
-            message: 'What is your name?'
-        }
-    ])
-    .then(answers => console.log(answers));
 /*
 
 

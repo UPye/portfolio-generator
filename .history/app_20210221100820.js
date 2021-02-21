@@ -28,10 +28,9 @@ inquirer
         {
             type: 'input',
             name: 'name',
-            message: 'What is your name?'
+            message
         }
     ])
-    .then(answers => console.log(answers));
 /*
 
 
