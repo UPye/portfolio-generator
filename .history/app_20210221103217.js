@@ -39,16 +39,13 @@ const promptUser = () => {
                 type: 'input',
                 name: 'about',
                 message: 'Provide some information about yourself:'
-            },
+            }
         ]);
     };
+        promptUser().then(answers => console.log(answers));
 
 
-const promptProject = portfolioData => {
-    // If there's no 'projects' array property, create one
-    if (!portfolioData.projects) {
-        portfolioData.projects = [];
-    };
+const promptProject = () => {
     console.log(`
         =================
         Add a New Project
@@ -69,7 +66,7 @@ const promptProject = portfolioData => {
             type: 'checkbox',
             name: 'languages',
             message: 'What did you build this project with? (Check all that apply)',
-            choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node']
+            choices: ['JavaScript', 'HTML', 'CSS', 'jQuery', 'Bootstrap', 'Node']
         },
         {
             type: 'input',
@@ -77,11 +74,9 @@ const promptProject = portfolioData => {
             message: 'Enter the GitHub link to your project. (Required)'
         },
         {
-            type: 'confirm',
-            name: 'feature',
-            message: 'Would you like to feature this project?',
-            default: false
-        },
+            type: 'confirm'
+            name: 'feature'
+        }
         {
             type: 'confirm',
             name: 'confirmAddProject',
@@ -89,23 +84,8 @@ const promptProject = portfolioData => {
             default: false
         }
     ])
-    .then(projectData => {
-        portfolioData.projects.push(projectData);
-        if (projectData.confirmAddProject) {
-            return promptProject(portfolioData);
-        }
-        else {
-            return portfolioData;
-        }
-    });
+}
 
-};
-
-    promptUser()
-        .then(promptProject)
-        .then(portfolioData => {
-            console.log(portfolioData);
-        });
 
 /*
 const printProfileData = profileDataArr => {

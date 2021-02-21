@@ -49,6 +49,15 @@ const promptProject = portfolioData => {
     if (!portfolioData.projects) {
         portfolioData.projects = [];
     };
+    .then(projectData => {
+        portfolioData.projects.push(projectData);
+        if (projectData.confirmAddProject) {
+            return promptProject(portfolioData);
+        }
+        else {
+            return portfolioData;
+        }
+    })
     console.log(`
         =================
         Add a New Project
@@ -88,16 +97,7 @@ const promptProject = portfolioData => {
             message: 'Would you like to enter another project?',
             default: false
         }
-    ])
-    .then(projectData => {
-        portfolioData.projects.push(projectData);
-        if (projectData.confirmAddProject) {
-            return promptProject(portfolioData);
-        }
-        else {
-            return portfolioData;
-        }
-    });
+    ]);
 
 };
 
