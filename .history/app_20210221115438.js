@@ -67,9 +67,6 @@ const promptUser = () => {
                     if (confirmAbout) {
                         return true;
                     }
-                    else {
-                        return false;
-                    }
                 }
             }
         ]);
