@@ -1,7 +1,9 @@
 const inquirer = require('inquirer');
 
+console.log(inquirer);
 
-const { writeFile, copyFile } = require('./utils/generate-site');
+// Activates the File System through Node.js Module
+const fs = require('fs');
 
 // Execute generatePage function from page-template.js
 const generatePage = require('./src/page-template');
@@ -212,29 +214,8 @@ const mockData = {
     promptUser()
         .then(promptProject)
         .then(portfolioData => {
-            return generatePage(portfolioData);
-        })
-        .then(pageHTML => {
-            return writeFile(pageHTML);
-        })
-        .then(writeFileResponse => {
-            console.log(writeFileResponse);
-            return copyFile();
-        })
-        .then(copyFileResponse => {
-            console.log(copyFileResponse);
-        })
-        .catch(err => {
-            console.log(err);
-        });
             
-        
-        
-        
-        
-        
-/* Discarded code after refactoring
-        const pageHTML = generatePage(portfolioData);
+            const pageHTML = generatePage(portfolioData);
 
             // Change the path to look like this
             fs.writeFile('./dist/index.html', pageHTML, err => {
@@ -244,21 +225,21 @@ const mockData = {
                 }
                 console.log('Page created! Check out index.html in this directory to see it!');
 
-            fs.copyFile('./src/style.css', './dist/style.css', err => {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-                console.log('Style sheet copied successfully!');
+                fs.copyFile('./src/style.css', './dist/style.css', err => {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    console.log('Style sheet copied successfully!');
+                });
             });
-        });
-    }); 
+        }); 
 
 
 
 
 
-
+/*
 const printProfileData = profileDataArr => {
     // This...
     for (let i = 0; i < profileDataArr.length; i++){

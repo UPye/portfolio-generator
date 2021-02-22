@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 
 
-const { writeFile, copyFile } = require('./utils/generate-site');
+const generateSite = require('./utils/generate-site.js');
 
 // Execute generatePage function from page-template.js
 const generatePage = require('./src/page-template');

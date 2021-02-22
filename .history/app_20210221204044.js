@@ -1,7 +1,9 @@
 const inquirer = require('inquirer');
 
+console.log(inquirer);
 
-const { writeFile, copyFile } = require('./utils/generate-site');
+// Activates the File System through Node.js Module
+const fs = require('fs');
 
 // Execute generatePage function from page-template.js
 const generatePage = require('./src/page-template');
@@ -215,7 +217,7 @@ const mockData = {
             return generatePage(portfolioData);
         })
         .then(pageHTML => {
-            return writeFile(pageHTML);
+            return fs.writeFile(pageHTML);
         })
         .then(writeFileResponse => {
             console.log(writeFileResponse);
